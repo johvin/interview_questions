@@ -38,6 +38,15 @@
             - 18.2.6.1 URI Syntax and Semantics
                 + [18.2.6.1.1][ecma-262 2015 18.2.6.1.1] Runtime Semantics: Encode ( string, unescapedSet )
             - [18.2.6.5][ecma-262 2015 18.2.6.5] encodeURIComponent (uriComponent)
+1. 21 Text Processing
+    + 21.1 String Objects
+        * 21.1.2 Properties of the String Constructor
+            - [21.1.2.1][ecma-262 2015 21.1.2.1] String.fromCharCode ( ...codeUnits )
+            - 21.1.2.2 String.fromCodePoint ( ...codePoints )
+        * 21.1.3 Properties of the String Prototype Object
+            - 21.1.3.1 String.prototype.charAt ( pos )
+            - [21.1.3.2][ecma-262 2015 21.1.3.2] String.prototype.charCodeAt ( pos )
+            - [21.1.3.3][ecma-262 2015 21.1.3.3] String.prototype.codePointAt ( pos )
 
 
 
@@ -51,3 +60,6 @@
 [ecma-262 5.1 6]: http://ecma-international.org/ecma-262/5.1/#sec-6
 [ecma-262 2015 18.2.6.5]: http://www.ecma-international.org/ecma-262/6.0/#sec-encodeuricomponent-uricomponent
 [ecma-262 2015 18.2.6.1.1]: http://www.ecma-international.org/ecma-262/6.0/#sec-encode
+[ecma-262 2015 21.1.2.1]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.fromcharcode
+[ecma-262 2015 21.1.3.2]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.charcodeat
+[ecma-262 2015 21.1.3.3]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.codepointat

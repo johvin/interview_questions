@@ -14,9 +14,9 @@ Q: js 代码使用什么编码来表示的，能表示多少种字符。
 A: ECMAScript 使用 Unicode 编码字符集，ES 5 使用 Unicode 3.0+, ES6 使用 Unicode 5.1+。Unicode 字符集中字符所在的位置称作码位，码位值范围 U+0000 ~ U+10FFFF。源码文本是由码位组成的序列。ECMAScript 源码文本使用 UTF-16 进行字符编码，16位为一个码元。参考 [码元][code unit]、[码位][code point]、[ECMA-262 5.1 规范之 Source Text][ecma-262 5.1 source text]、[百度百科 Unicode][baike unicode]。
 
 
-Q: 描述 String 的方法 charCodeAt 与 codePointAt 的区别。
+Q: 描述 String 的方法 charCodeAt 与 codePointAt 的区别，以及 String.fromCharCode 与 String.fromCodePoint 的不同。
 
-A: ECMAScript 使用 UTF-16 为字符编码，码元为 16-bits，Unicode 字符表示为 1~2 个码元。charCodeAt 返回 UTF-16 编码字符的1个码元的值，codePointAt 返回  UTF-16 编码字符的码位值。如果当前索引是第一个码元且与第二个码元能组成有效的编码，则返回码位值。如果不能组成有效的编码或者索引是第二个码元，则直接返回码元的值。BMP 内的字符，二者值一样，BMP 以外的字符，charCodeAt 的返回值位于代理区。参考 [MDN charCodeAt][mdn charCodeAt]、[ECMA-262 2015 规范之 charCodeAt][ecma-262 2015 charCodeAt]、[WIKI UTF-16][wiki UTF-16]。
+A: ECMAScript 使用 UTF-16 为字符编码，码元为 16-bits，Unicode 字符表示为 1~2 个码元。charCodeAt 返回 UTF-16 编码字符的1个码元的值，codePointAt 返回  UTF-16 编码字符的码位值。如果当前索引是第一个码元且与第二个码元能组成有效的编码，则返回码位值。如果不能组成有效的编码或者索引是第二个码元，则直接返回码元的值。BMP 内的字符，二者值一样，BMP 以外的字符，charCodeAt 的返回值位于代理区。String.fromCharCode 与 String.fromCodePoint 类似。参考 [MDN charCodeAt][mdn charCodeAt]、[ECMA-262 2015 规范之 charCodeAt][ecma-262 2015 charCodeAt]、[ECMA-262 2015 规范之 codePointAt][ecma-262 2015 codePointAt]、[WIKI UTF-16][wiki UTF-16]、[ECMA-262 2015 规范之 fromCharCode][ecma-262 2015 fromCharCode]。
 
 
 Q: 将字符串 `'中国'`转换为 utf-8 编码
@@ -112,5 +112,7 @@ Base64 编码问题可以查看 [HTML 规范相关问题][html spec] 相关部�
 [encodeURIComponent definition]: http://www.ecma-international.org/ecma-262/6.0/#sec-encodeuricomponent-uricomponent
 [mdn charCodeAt]: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
 [ecma-262 2015 charCodeAt]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.charcodeat
+[ecma-262 2015 codePointAt]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.codepointat
+[ecma-262 2015 fromCharCode]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.fromcharcode
 [wiki UTF-16]: https://zh.wikipedia.org/wiki/UTF-16
 [html spec]: ./html_spec.md
