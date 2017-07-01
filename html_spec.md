@@ -1,4 +1,14 @@
-# html 规范相关问题
+# HTML 规范相关问题
+
+<!-- TOC -->
+
+- [HTML 规范相关问题](#html-规范相关问题)
+  - [定时器](#定时器)
+  - [Base64 编码](#base64-编码)
+  - [performance 性能](#performance-性能)
+
+<!-- /TOC -->
+
 
 ## 定时器
 
@@ -72,6 +82,9 @@ setTimeout(function () {
 ```
 
 
+## Base64 编码
+
+Q: Base64 编码后体积增加 1/3，原理是什么？
 Q: 讲一下 Base64 编码的原理，并将下面的字符串使用 base64 加密。
 
 ```js
@@ -86,7 +99,7 @@ str 使用 base64 加密的结果：
 self.btoa(str);
 ```
 
-参考 [Base64 工具方法][whatwg base64]。
+参考 [Base64 工具方法][whatwg base64]、[MDN btoa][mdn btoa]。
 
 
 Q: 已知字符 A 的 ASCII 码为 65，根据 `str1` 的 Base64 解码结果，对字符串 `str2`、`str3`、`str4`、`str5` 和 `str6` 进行 Base64 解码。
@@ -103,6 +116,10 @@ var str6 = "Y"
 
 A: `str2` 和 `str6` 是错误的 Base64 编码，故解码报错。`str3` 和 `str4` 的解码结果都是 "a"，她们与 `str1` 属于相同的编码结果，且解码的过程会忽略数据中的 ASCII 码空格。`str5` 在解码的时候会丢掉低 2 bit，而 'Q' 和 'R' ASCII 码只差 1，高 6 位相同，故而她们的解码值也相同。参考 [Base64 工具方法][whatwg base64]。
 
+更多编码相关问题可以查看 [ECMA 规范相关问题][ecma spec] 相关部分内容。
+
+
+## performance 性能
 
 Q:  如何计算一个页面打开的时间？
 
@@ -113,3 +130,5 @@ A: performance.now()
 <!-- Links -->
 [whatwg timers]: https://html.spec.whatwg.org/multipage/webappapis.html#timers
 [whatwg base64]: https://html.spec.whatwg.org/multipage/webappapis.html#atob
+[mdn btoa]: https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/btoa
+[ecma spec]: ./ecma_spec.md
