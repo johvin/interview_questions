@@ -4,6 +4,7 @@
 
 - [ECMAScript 规范相关问题](#ecmascript-规范相关问题)
   - [Unicode 编码](#unicode-编码)
+  - [Object](#object)
 
 <!-- /TOC -->
 
@@ -100,6 +101,21 @@ function unicodeToUTF8(cp) {
 Base64 编码问题可以查看 [HTML 规范相关问题][html spec] 相关部分内容。
 
 
+## Object
+
+Q: 实现 Object.is 方法，逻辑是 +0 和 -0 不等，NaN 和 NaN 相等，其他类型变量按照类型严格相等。
+A: 代码如下：
+```js
+function equal(a, b) {
+    if (a === b) {
+        return a !== 0 || 1 / a === 1 / b;
+    }
+    return a !== a && b !== b;
+}
+```
+
+参考 [MDN Object.is][mdn Object.is]、[ES 6 Object.is][ecma-262 2015 Object.is]。
+
 
 <!-- links -->
 [mdn btoa]: https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/btoa#Unicode_字符串
@@ -116,3 +132,5 @@ Base64 编码问题可以查看 [HTML 规范相关问题][html spec] 相关部�
 [ecma-262 2015 fromCharCode]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.fromcharcode
 [wiki UTF-16]: https://zh.wikipedia.org/wiki/UTF-16
 [html spec]: ./html_spec.md
+[mdn Object.is]: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+[ecma-262 2015 Object.is]: http://www.ecma-international.org/ecma-262/6.0/#sec-object.is

@@ -28,6 +28,12 @@
 
 ### [ECMAScript 2015 规范][ecma-262 2015 spec] 相关
 
+1. 7 Abstract Operations
+    + 7.1 Type Conversion
+    + 7.2 Testing and Comparison Operations
+        * [7.2.9][ecma-262 7.2.9] SameValue(x, y)
+        * 7.2.10 SameValueZero(x, y)
+        * 7.2.13 Strict Equality Comparison
 1. 10 ECMAScript Language: Source Code
     + [10.1][ecma-262 2015 10.1] & [ES5.1 6][ecma-262 5.1 6] Source Text
         * 10.1.1 Static Semantics: UTF16Encoding ( cp )
@@ -38,6 +44,10 @@
             - 18.2.6.1 URI Syntax and Semantics
                 + [18.2.6.1.1][ecma-262 2015 18.2.6.1.1] Runtime Semantics: Encode ( string, unescapedSet )
             - [18.2.6.5][ecma-262 2015 18.2.6.5] encodeURIComponent (uriComponent)
+1. 19 Fundamental Objects
+    + 19.1 Object Objects
+        * [19.1.2][ecma-262 2015 19.1.2] Properties of the Object Constructor
+            - 19.1.2.10 Object.is ( value1, value2 )
 1. 21 Text Processing
     + 21.1 String Objects
         * 21.1.2 Properties of the String Constructor
@@ -58,8 +68,10 @@
 [w3c 4.11.1.15]: https://www.w3.org/TR/html5/scripting-1.html#script-processing-defer
 [ecma-262 2015 10.1]: http://www.ecma-international.org/ecma-262/6.0/#sec-source-text
 [ecma-262 5.1 6]: http://ecma-international.org/ecma-262/5.1/#sec-6
+[ecma-262 7.2.9]: http://www.ecma-international.org/ecma-262/6.0/#sec-samevalue
 [ecma-262 2015 18.2.6.5]: http://www.ecma-international.org/ecma-262/6.0/#sec-encodeuricomponent-uricomponent
 [ecma-262 2015 18.2.6.1.1]: http://www.ecma-international.org/ecma-262/6.0/#sec-encode
+[ecma-262 2015 19.1.2]: http://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-the-object-constructor
 [ecma-262 2015 21.1.2.1]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.fromcharcode
 [ecma-262 2015 21.1.3.2]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.charcodeat
 [ecma-262 2015 21.1.3.3]: http://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.codepointat
