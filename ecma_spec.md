@@ -104,6 +104,7 @@ Base64 编码问题可以查看 [HTML 规范相关问题][html spec] 相关部�
 ## Object
 
 Q: 实现 Object.is 方法，逻辑是 +0 和 -0 不等，NaN 和 NaN 相等，其他类型变量按照类型严格相等。
+
 A: 代码如下：
 ```js
 function equal(a, b) {

@@ -1,11 +1,12 @@
 # Interview Questions
 
-根据 [whatwg html 规范][whatwg html]、[w3c html5 规范][w3c html5] 和 [ECMAScript 2015 规范][ecma-262 2015 spec] 总结的一些技术细节问题，可以用作面试题考察面试者。来源包括个人思考以及网络上的一些面试题。欢迎大家提 issue 或者 pr 贡献。
+根据 [whatwg html 规范][whatwg html]、[w3c html5 规范][w3c html5] 和 [ECMAScript 2015 规范][ecma-262 2015 spec] 及其他前端知识总结的一些技术问题，可以用作面试题考察面试者。来源包括个人思考以及网络上的一些面试题。欢迎大家提 issue 或者 pr 贡献。
 
 ## 入口
 
 - [HTML 面试题](./html_spec.md)
 - [Javascript 面试题](./ecma_spec.md)
+- [Http 面试题](./http.md)
 
 ## 进度
 
