@@ -5,6 +5,7 @@
 - [ECMAScript 规范相关问题](#ecmascript-规范相关问题)
   - [Unicode 编码](#unicode-编码)
   - [Object](#object)
+  - [杂](#杂)
 
 <!-- /TOC -->
 
@@ -117,6 +118,48 @@ function equal(a, b) {
 
 参考 [MDN Object.is][mdn Object.is]、[ES 6 Object.is][ecma-262 2015 Object.is]。
 
+## 杂
+
+Q: 如何证明 for ( let i = 0; i < arr.length; i++ ) 中每次循环都会获取 arr.length 属性
+
+A: 方法有很多种，这里列举两种。
+
+方法一：
+```js
+const obj = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  3: '4'
+};
+
+Object.defineProperty(obj, 'length', {
+  get: function () {
+    console.log('get length');
+    return 4;
+  }
+})
+
+for(let i =0; i < obj.length; i++) {
+  console.log(`key: ${i}, value: ${obj[i]}`);
+}
+
+// 输出中会出现 get length 4 次
+```
+
+方法二：
+```js
+const arr = ['a', 'b'];
+
+for (let i = 0; i < arr.length; i++) {
+  if (i === 0) {
+    arr.push('c');
+  }
+  console.log(`key: ${i}, value: ${arr[i]}`);
+}
+
+// 会有 3 行输出
+```
 
 <!-- links -->
 [mdn btoa]: https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/btoa#Unicode_字符串

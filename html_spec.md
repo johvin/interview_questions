@@ -121,7 +121,7 @@ A: `str2` 和 `str6` 是错误的 Base64 编码，故解码报错。`str3` 和 `
 
 ## performance 性能
 
-Q:  如何计算一个页面打开的时间？
+Q: 如何计算一个页面打开的时间？
 
 A: performance.now()
 
