@@ -3,11 +3,110 @@
 <!-- TOC -->
 
 - [ECMAScript 规范相关问题](#ecmascript-规范相关问题)
+  - [闭包](#闭包)
   - [Unicode 编码](#unicode-编码)
   - [Object](#object)
   - [杂](#杂)
 
 <!-- /TOC -->
+
+## 闭包
+
+Q: 下面几种情况的 js 代码输出是什么？
+
+```js
+// 情况一
+const obj = {
+  age: 23,
+  sayAge: function () {
+    console.log('age', this.age);
+  }
+}
+
+obj.sayAge();
+const { sayAge } = obj;
+sayAge();
+```
+
+```js
+// 情况二
+const obj = {
+  [this]: 'a',
+  hello: () => {
+    console.log('this', this['this']);
+  }
+}
+console.log(Object.keys(obj));
+obj.hello();
+```
+
+```js
+// 情况三
+const obj = {
+  hi: function () {
+    const f1 = function () {
+      'use strict';
+      console.log('this', this);
+    }
+
+    const f2 = f1.bind(this);
+    f2();
+  }
+}
+
+obj.hi();
+const { hi } = obj;
+hi();
+```
+
+```js
+// 情况四
+const obj = {
+  hi: function () {
+    const f1 = () => {
+      console.log('this', this);
+
+      function f2() {
+        console.log('this', this);
+      }
+
+      f2();
+    }
+
+    f1();
+  }
+}
+
+obj.hi();
+const { hi } = obj;
+hi();
+```
+
+A: 输出如下
+
+```
+// 情况一
+23
+undefined
+```
+
+```
+// 情况二
+['hello', '[object Window]']
+undefined
+```
+
+```
+// 情况三
+obj
+window or global
+```
+
+```
+// 情况四
+obj, window or global
+window or global, window or global
+```
 
 ## Unicode 编码
 
