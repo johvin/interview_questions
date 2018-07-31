@@ -3,10 +3,12 @@
 <!-- TOC -->
 
 - [ECMAScript 规范相关问题](#ecmascript-规范相关问题)
-  - [闭包](#闭包)
-  - [Unicode 编码](#unicode-编码)
-  - [Object](#object)
-  - [杂](#杂)
+    - [闭包](#闭包)
+    - [Unicode 编码](#unicode-编码)
+    - [Object](#object)
+    - [Function](#function)
+    - [Set](#set)
+    - [杂/综合](#杂综合)
 
 <!-- /TOC -->
 
@@ -217,9 +219,22 @@ function equal(a, b) {
 
 参考 [MDN Object.is][mdn Object.is]、[ES 6 Object.is][ecma-262 2015 Object.is]。
 
-## 杂
 
-Q: 如何证明 for ( let i = 0; i < arr.length; i++ ) 中每次循环都会获取 arr.length 属性
+## Function
+
+Q: 使用 Function 构造函数和函数声明创建的函数实例有何不同？
+A: Function 构造函数在创建函数实例时不会在运行的上下文中生成生成闭包，函数实例是在全局作用域(global scope)中创建的，其内部只能访问函数体内的局部变量及全局变量。函数声明创建的函数实例则会生成闭包。参考 [MDN Function][mdn Function].
+
+
+## Set
+
+Q: Set 和 WeakSet 有什么区别？
+A: 区别主要有两点。一、WeakSet 只能存放对象。二、WeakSet 实例对集合内的对象是弱引用，弱引用对集合内元素的 gc 不产生影响。因此不支持遍历，跟遍历相关的接口、属性都不存在，如 size, keys, forEach。参考 [MDN WeakSet][mdn WeakSet].
+
+
+## 杂/综合
+
+Q: 如何证明 for (let i = 0;i < arr.length;i++) 中每次循环都会获取 arr.length 属性
 
 A: 方法有很多种，这里列举两种。
 
@@ -277,3 +292,5 @@ for (let i = 0; i < arr.length; i++) {
 [html spec]: ./html_spec.md
 [mdn Object.is]: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is
 [ecma-262 2015 Object.is]: http://www.ecma-international.org/ecma-262/6.0/#sec-object.is
+[mdn Function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function#Difference_between_Function_constructor_and_function_declaration
+[mdn WeakSet]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet#Description
